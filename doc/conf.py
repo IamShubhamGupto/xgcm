@@ -55,7 +55,8 @@ extensions = [
 
 # never execute notebooks: avoids lots of expensive imports on rtd
 # https://nbsphinx.readthedocs.io/en/0.2.14/never-execute.html
-# nbsphinx_execute = 'never'
+nbsphinx_execute = 'always'
+nbsphinx_allow_errors = True
 exclude_patterns = ["_build", ".ipynb_checkpoints"]
 
 # http://stackoverflow.com/questions/5599254/how-to-use-sphinxs-autodoc-to-document-a-classs-init-self-method
@@ -73,8 +74,8 @@ def setup(app):
 
 # link to github issues
 extlinks = {
-    "issue": ("https://github.com/xgcm/xgcm/issues/%s", "GH#"),
-    "pull": ("https://github.com/xgcm/xgcm/issues/%s", "GH#"),
+    "issue": ("https://github.com/xgcm/xgcm/issues/%s", "GH#%s"),
+    "pull": ("https://github.com/xgcm/xgcm/issues/%s", "GH#%s"),
 }
 
 

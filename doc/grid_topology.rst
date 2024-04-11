@@ -46,7 +46,7 @@ Two Connected Faces
 The simplest possible scenario is two faces connected at one side. Consider
 the following dataset
 
-.. ipython:: python
+.. code:: python
 
     import numpy as np
     import xarray as xr
@@ -81,7 +81,7 @@ Let's imagine the two faces are joined in the following way:
 
 We can construct a grid that understands this connection in the following way
 
-.. ipython:: python
+.. code:: python
 
     import xgcm
 
@@ -105,7 +105,7 @@ across the connected faces.
 Two Faces with Rotated Axes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. ipython:: python
+.. code:: python
 
     face_connections = {
         "face": {0: {"X": (None, (1, "Y", False))}, 1: {"Y": ((0, "X", False), None)}}
@@ -125,7 +125,7 @@ topology for a cubed sphere grid is shown in the figure below:
 This geomtry has six faces. We can generate an xarray Dataset that has two
 spatial dimensions and a face dimension as follows:
 
-.. ipython:: python
+.. code:: python
 
     ds = xr.Dataset(
         {"data_c": (["face", "y", "x"], np.random.rand(6, N, N))},
@@ -149,7 +149,7 @@ spatial dimensions and a face dimension as follows:
 
 We specify the face connections and create the ``Grid`` object as follows:
 
-.. ipython:: python
+.. code:: python
 
     face_connections = {
         "face": {
@@ -198,7 +198,7 @@ It is up to the user to specify this connectivity via the
 ``face_connections`` dictionary.
 The ``face_connections`` dictionary has the following general stucture
 
-.. code-block:: none
+.. code:: none
 
     {'<FACE DIMENSION NAME>':
         {<FACE DIMENSION VALUE>:
@@ -210,7 +210,7 @@ The ``face_connections`` dictionary has the following general stucture
 ``<LEFT CONNECTION>>`` and ``<RIGHT CONNECTION>`` are either ``None`` (for no
 connection) or a three element tuple with the following contents
 
-.. code-block:: none
+.. code:: none
 
     (<FACE DIMENSION VALUE>, `<AXIS NAME>`, <REVERSE CONNECTION>)
 
